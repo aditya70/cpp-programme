@@ -1,0 +1,11 @@
+C Compile and Run
+gcc/g++/clang/clang++		filename (.c)
+./a.out
+Options => -o output_filename
+
+C++ Compile and Run
+g++/clang++		filename (.cpp)  
+./a.out
+Options => -o output_filename
+
+clang++ -Wall -std=c++11 test.cc -o test
