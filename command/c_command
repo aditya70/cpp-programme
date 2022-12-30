@@ -9,3 +9,7 @@ g++/clang++		filename (.cpp)
 Options => -o output_filename
 
 clang++ -Wall -std=c++11 test.cc -o test
+
+clang++ -Wall -std=c++11  _0125_Valid_Palindrome.cpp
+clang++ -std=c++11  _0125_Valid_Palindrome.cpp
+clang++ _0125_Valid_Palindrome.cpp
