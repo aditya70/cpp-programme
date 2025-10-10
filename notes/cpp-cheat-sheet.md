@@ -21,6 +21,7 @@ bool found = binary_search(arr, arr + n, 3);
 ### VECTOR
 #### Declaration & Initialization
 ```
+vector<int> v(26,0); // v with size 26 and all values initialized to 0
 vector<int> v = {1, 2, 3};     
 v.push_back(4);                // {1, 2, 3, 4}
 v.pop_back();                  // {1, 2, 3}
