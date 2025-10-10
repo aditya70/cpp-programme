@@ -260,3 +260,159 @@ int32_t main() {
     }
 }
 ```
+
+
+# Additional Topics for C++ Competitive Programming Cheat Sheet
+
+---
+
+## CHAR ARRAYS (C-Style Strings)
+
+Even though `std::string` is preferred, **char arrays** are still common in C++ problems (especially on older platforms or for very fast I/O).
+
+### Declaration & Initialization
+
+```cpp
+char s1[20] = "hello";      // declaration + initialization
+char s2[20];
+strcpy(s2, s1);              // copy: s2 = "hello"
+strcat(s2, " world");        // concatenate: s2 = "hello world"
+int len = strlen(s2);        // len = 11
+```
+
+### Comparison
+
+```cpp
+if (strcmp(s1, s2) == 0) cout << "Equal"; // strcmp returns 0 if equal
+```
+
+### Input/Output
+
+```cpp
+char name[100];
+cin >> name;                 // reads a single word (stops at space)
+cin.getline(name, 100);      // reads a full line (with spaces)
+```
+
+---
+
+##  ITERATORS
+
+Iterators act like **pointers** that traverse containers.
+
+### Example with `vector`
+
+```cpp
+vector<int> v = {10, 20, 30};
+
+for (vector<int>::iterator it = v.begin(); it != v.end(); ++it)
+    cout << *it << " ";      // prints 10 20 30
+
+// Shortcut
+for (auto it = v.begin(); it != v.end(); ++it)
+    cout << *it << " ";
+```
+
+### Reverse Iterators
+
+```cpp
+for (auto it = v.rbegin(); it != v.rend(); ++it)
+    cout << *it << " ";      // prints 30 20 10
+```
+
+---
+
+## ALGORITHMS (from `<algorithm>`)
+
+### Searching
+
+```cpp
+vector<int> v = {1, 2, 4, 4, 5, 6};
+
+auto it1 = lower_bound(v.begin(), v.end(), 4); // first position >= 4
+auto it2 = upper_bound(v.begin(), v.end(), 4); // first position > 4
+int count = it2 - it1; // frequency of 4
+```
+
+### Permutations
+
+```cpp
+string s = "abc";
+next_permutation(s.begin(), s.end()); // "acb"
+prev_permutation(s.begin(), s.end()); // back to "abc"
+```
+
+### Unique Elements
+
+```cpp
+sort(v.begin(), v.end());
+v.erase(unique(v.begin(), v.end()), v.end()); // removes duplicates
+```
+
+---
+
+## PAIR & TUPLE UTILITIES
+
+### Pair
+
+```cpp
+pair<int, int> p = {10, 20};
+cout << p.first << " " << p.second;
+```
+
+### Tuple (for 3+ values)
+
+```cpp
+tuple<int, string, double> t = {1, "abc", 2.5};
+cout << get<0>(t); // 1
+```
+
+---
+
+## NUMERIC FUNCTIONS (from `<numeric>`)
+
+```cpp
+vector<int> v = {1, 2, 3, 4, 5};
+int sum = accumulate(v.begin(), v.end(), 0); // 15
+int product = accumulate(v.begin(), v.end(), 1, multiplies<int>()); // 120
+```
+
+---
+
+## EXTRA UTILITIES
+
+### Swap
+
+```cpp
+int a = 5, b = 10;
+swap(a, b); // a=10, b=5
+```
+
+### Min/Max
+
+```cpp
+int x = min(5, 9); // 5
+int y = max(5, 9); // 9
+```
+
+### Ranges (C++20+)
+
+```cpp
+for (int x : views::iota(1, 6)) cout << x << " "; // 1 2 3 4 5
+```
+
+---
+
+## QUICK IO OPTIMIZATION
+
+```cpp
+ios::sync_with_stdio(false);
+cin.tie(nullptr);
+```
+
+Use this to speed up input/output in competitive programming.
+
+---
+
+
+
