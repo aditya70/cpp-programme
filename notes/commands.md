@@ -1,3 +1,4 @@
+### cpp command
 C Compile and Run
 gcc/g++/clang/clang++		filename (.c)
 ./a.out
@@ -13,3 +14,9 @@ clang++ -Wall -std=c++11 test.cc -o test
 clang++ -Wall -std=c++11  _0125_Valid_Palindrome.cpp
 clang++ -std=c++11  _0125_Valid_Palindrome.cpp
 clang++ _0125_Valid_Palindrome.cpp
+
+###
+#Indentation and formating
+cmd + A + cmd + K + cmd + F
+# Integrated terminal 
+control(^) + backtick (`)
