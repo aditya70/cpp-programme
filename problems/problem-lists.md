@@ -69,3 +69,7 @@
 - Monotonic Stacks/Queues (used in sliding window problems)
 
 Problems: https://lnkd.in/gxQaytfY
+
+
+Leetcode list
+- https://seanprashad.com/leetcode-patterns/
