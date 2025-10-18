@@ -20,3 +20,81 @@ struct cmp {
 ```
 
 - priority_queue<ListNode*, vector<ListNode*>, cmp> pq;
+
+
+ * Your Trie object will be instantiated and called as such:
+ // new Trie() = dynamically allocates a new Trie object on the heap
+ * Trie* obj = new Trie(); // Pointer for new keyword // Trie* obj = pointer to a Trie object
+ * Valid:  Trie obj;obj.insert("apple");
+
+child(26, nullptr); // is not valid inside the constructor body // it looks like a function call, not a constructor call.
+```
+Option 1 (Initializer List – preferred)
+class Trie {
+    vector<Trie*> child;
+    bool isEnd;
+public:
+    Trie() : child(26, nullptr), isEnd(false) {}
+};
+This works because child(26, nullptr) calls the vector’s constructor before the object is created.
+```
+
+- nullptr is better than NULL
+```
+class MapSum {
+    struct TrieNode {
+        vector<TrieNode*> children;
+        int sum;   // cumulative sum for all keys through this prefix
+        TrieNode() : children(26, nullptr), sum(0) {}
+    };
+
+    TrieNode* root;
+    unordered_map<string, int> keyToVal;
+
+public:
+    MapSum() {
+        root = new TrieNode();
+    }
+```
+
+```
+struct TrieNode {
+    vector<TrieNode*> child;
+    int sum;
+    TrieNode() : child(26, nullptr), sum(0) {}
+};
+
+class MapSum {
+    // Option1
+    TrieNode* root;
+    // Option2
+    //TrieNode* root = new TrieNode(); 
+    unordered_map<string, int> keyToVal;
+    public:
+    MapSum() {
+        root = new TrieNode();
+    }
+}
+```
+
+
+
+
+#### split string by space
+```
+string sentence;
+stringstream ss(sentence);
+string word; // stores splitted string by space
+while (ss >> word) {
+
+}
+
+vector<pair<int,int>> dirs={{-1,0},{1,0},{0,-1},{0,1}}; // for (auto& [x,y]:dirs)
+~~vector<vector<int>>> dirs={{-1,0},{1,0},{0,-1},{0,1}};~~ // for (auto& [x,y]:dirs) // cannot decompose vector
+
+
+vector<string> v;
+unordered_set<string> s(v.begin(), v.end());  // unordered_set constructor (faster initialization)
+
+char ch='2' // ch+1= '3' , ch-1='2'
+char ch = 'b' // ch+1='c', ch-1='a'
