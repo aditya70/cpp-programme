@@ -54,6 +54,9 @@ Trie
 A few questions on Array, Queue, Stack, HashMap etc.
 https://leetcode.com/discuss/post/6459307/google-interview-experiences-compilation-u3cz/
 
+Latest Questions
+https://leetcode.com/discuss/post/6469509/google-latest-interview-experiences-coll-r4zm/
+
 heap and a hashset.
 
 https://github.com/liquidslr/leetcode-company-wise-problems/tree/main/Google
@@ -69,8 +72,11 @@ priority queue, sorting and greedy
 simple bfs
 Array, Linked list, Graph, Trees, String manipulatoin and DP
 
+Google Questions list (Leetcode) - https://p.ip.fi/2tCA
 
-Blind 75- https://leetcode.com/discuss/post/460599/blind-75-leetcode-questions-by-krishnade-9xev/
+
+Blind 75 LeetCode Questions- https://leetcode.com/discuss/post/460599/blind-75-leetcode-questions-by-krishnade-9xev/
+LeetCode Patterns- https://seanprashad.com/leetcode-patterns/
 Here is the leetcode list for Blind 75 and more:
 Blind 75: https://leetcode.com/list/oizxjoit
 Grind 169: https://leetcode.com/list/rabvlt31

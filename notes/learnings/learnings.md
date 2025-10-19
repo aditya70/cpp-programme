@@ -117,3 +117,35 @@ vector<string> v;
 // set<string> result; // result is set container, it can be other container
 v.insert(v.end(), result.begin(), result.end()); //  insert at the end of vector
 ```
+
+#### iota
+- iota is a C++ STL algorithm that fills a range with sequentially increasing values.
+#include <numeric>  // Required header
+
+iota(start_iterator, end_iterator, starting_value);
+What it does:
+Fills the range [start, end) with: starting_value, starting_value+1, starting_value+2, ...
+vector<int> parent(26);
+iota(parent.begin(), parent.end(), 0);
+
+// Result: parent = [0, 1, 2, 3, 4, ..., 25]
+
+// Example 1: Fill with 0, 1, 2, 3, 4
+vector<int> v(5);
+iota(v.begin(), v.end(), 0);
+// v = [0, 1, 2, 3, 4]
+
+// Example 2: Start from 10
+vector<int> v(5);
+iota(v.begin(), v.end(), 10);
+// v = [10, 11, 12, 13, 14]
+
+// Example 4: Works with other types
+vector<char> chars(5);
+iota(chars.begin(), chars.end(), 'a');
+// chars = ['a', 'b', 'c', 'd', 'e']
+
+// Example 5: Array
+int arr[5];
+iota(arr, arr + 5, 100);
+// arr = [100, 101, 102, 103, 104]
