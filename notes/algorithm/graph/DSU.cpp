@@ -77,7 +77,29 @@ public:
 
 
 
+// Option3: without rank and size 
+class Solution {
+public:
+    vector<int> parent;
 
+    int find(int x) {
+        if (parent[x] != x)
+            parent[x] = find(parent[x]); // path compression
+        return parent[x];
+    }
+
+    void unite(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+        if (pa != pb)
+            parent[pb] = pa;
+    }
+
+    bool equationsPossible(vector<string>& equations) {
+        parent.resize(26);
+        iota(parent.begin(), parent.end(), 0); // initialize parent[i] = i
+    }
+}
 
 
 
