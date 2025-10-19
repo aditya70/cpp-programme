@@ -111,3 +111,9 @@ vector<string> board=vector<string>(n,string(n,'.')); // string of size n with .
 set<string> result;
 vector<string> v(result.begin(), result.end()); //. vector from set
 return vector<string>(result.begin(), result.end());
+
+```
+vector<string> v;
+// set<string> result; // result is set container, it can be other container
+v.insert(v.end(), result.begin(), result.end()); //  insert at the end of vector
+```

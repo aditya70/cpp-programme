@@ -108,6 +108,7 @@
 2. Use **path compression** in `find` to reduce time complexity.
 3. For merging multiple elements, **map each element to an integer ID** for DSU indexing.
 4. After each problem, **check how `union` and `find` are applied differently** — e.g., merging emails vs numbers.
+5. Connected, Merge, Group, relationship problems
 
 ---
 
