@@ -39,3 +39,13 @@
 * Tree DFS with state return
 
 
+A
+## 💡 Intuition Summary
+
+| Concept                      | Meaning                               | Example                             |
+| ---------------------------- | ------------------------------------- | ----------------------------------- |
+| **DFS (Depth-First Search)** | Explore all possible combinations     | Go as deep as possible with [2,2,3] |
+| **Backtracking**             | Undo the last choice and try another  | Pop `3` → try next number           |
+| **Pruning**                  | Stop exploring impossible paths early | When candidate > remaining target   |
+
+

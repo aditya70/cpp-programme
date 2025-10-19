@@ -77,7 +77,14 @@ class MapSum {
 }
 ```
 
-
+```
+class TrieNode {
+public:
+    unordered_map<char, TrieNode*> children;
+    string word;
+    TrieNode() : word("") {}
+};
+```
 
 
 #### split string by space
@@ -98,3 +105,9 @@ unordered_set<string> s(v.begin(), v.end());  // unordered_set constructor (fast
 
 char ch='2' // ch+1= '3' , ch-1='2'
 char ch = 'b' // ch+1='c', ch-1='a'
+
+vector<string> board=vector<string>(n,string(n,'.')); // string of size n with .
+
+set<string> result;
+vector<string> v(result.begin(), result.end()); //. vector from set
+return vector<string>(result.begin(), result.end());

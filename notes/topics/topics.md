@@ -33,6 +33,7 @@
 | **Greedy**                  | Merge intervals, minimum arrows, meeting rooms |
 | **Heap / Priority Queue**   | K closest points, median finder                |
 
+- **DFS and BackTracking**
 ---
 
 ## 💡 Must-Know 
