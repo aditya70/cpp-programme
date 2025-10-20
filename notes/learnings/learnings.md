@@ -86,6 +86,16 @@ public:
 };
 ```
 
+```
+// Bitwise Trie
+struct TrieNode {
+    TrieNode* child[2]; // 0 or 1
+    TrieNode() {
+        child[0] = child[1] = nullptr;
+    }
+};
+
+```
 
 #### split string by space
 ```
@@ -203,3 +213,12 @@ s.erase(s.begin(), s.begin() + 5); // Output: "d"
 
 // Erase last 3 characters
 s.erase(s.end() - 3, s.end());
+
+
+int num; 
+// check all 32 bits of num from MSB(31)- Most Significant bit to LSB(0) - Least Significant bit
+for(int i=31;i>=0;i--){
+    int bit = (num >> i) & 1; // num/ 2^i  // checks ith bit is set or not
+}
+
+1 << i = 1 * 2^i // multiplication
