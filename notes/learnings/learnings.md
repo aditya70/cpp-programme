@@ -149,3 +149,57 @@ iota(chars.begin(), chars.end(), 'a');
 int arr[5];
 iota(arr, arr + 5, 100);
 // arr = [100, 101, 102, 103, 104]
+
+
+string stream, word;
+int maxLen;
+maxLen=max(maxLen,(int)word.size()); // typecast is necessary because of a type mismatch between int and size_t.
+**Why it fails:**
+- `maxLen` is `int` (signed)
+- `word.size()` returns `size_t` (unsigned, typically `unsigned long` or `unsigned long long`)
+- `max()` requires **both arguments to be the same type**
+
+
+###### erase
+// By position
+s.erase(pos);           // Erase from pos to end
+s.erase(pos, len);      // Erase len chars starting at pos
+
+// By iterator
+s.erase(it);            // Erase single char at iterator
+s.erase(start, end);    // Erase range [start, end)
+// Clear
+s.erase();              // Clear entire string
+s.clear();              // Same as erase()
+
+Examples
+string s = "Hello";
+s.erase();  // Empty string
+// or
+s.clear();  // Same result
+
+string s = "Hello Beautiful World";
+
+// Find and erase "Beautiful "
+size_t pos = s.find("Beautiful");
+if (pos != string::npos) {
+    s.erase(pos, 10);  // "Beautiful " is 10 chars
+}
+
+1. Erase by Position and Length
+string s = "Hello World";
+// Erase 6 characters starting from index 5
+s.erase(5, 6); // Output: "Hello"
+// Erase from index 3 to end (length not specified)
+s.erase(3); // Output: "Hel"
+
+2. Erase Range with Iterators
+string s = "Hello World";
+// Erase from index 5 to 10 (not including 10)
+s.erase(s.begin() + 5, s.begin() + 10); // Output: "Hellod"
+
+// Erase first 5 characters
+s.erase(s.begin(), s.begin() + 5); // Output: "d"
+
+// Erase last 3 characters
+s.erase(s.end() - 3, s.end());

@@ -4,7 +4,10 @@ Asked to code the approach and he made me modify structure of code according to 
 
 2. You’re given a string and a list of word replacements (replace a word with another starting from a given index). It was straightforward, but I initially overcomplicated it thinking I needed a Trie. Still, I ended up solving it.
 
-
+3. You have a dictionary of string, example - [string, sring, sing, wording, ing,ng, g]
+You need to tell the maximum longest word in the dictionary that is valid.
+Definiton of valid string , if you remove only one character from the string and it should be in the dictionary and by doing so if you able to reach at the end with length as 1, it will be valid.
+Example - ( string-> sring->sing->ing->ng->g) [as all the intermediate string are present in the dictionary this will be a valid string and longest lenght is 6]
 
 
 
