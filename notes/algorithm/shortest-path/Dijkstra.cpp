@@ -14,6 +14,7 @@ vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
     pq.push({0, src});
 
     while (!pq.empty()) {
+       //  auto& [d, u] = pq.top(); pq.pop(); // wrong // reference to top element and then pop destroys that element. // the reference d and u are dangling references — undefined behavior.
         auto [d, u] = pq.top(); pq.pop();
 
         // If we already found a better path
@@ -32,6 +33,8 @@ vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
 
 int main() {
     int n = 5;
+    // vector<vector<int>>& graph; // graph[i] = (ui, vi, wi)
+    // // ui is the source node, vi is the target node, and wi is weight
     vector<vector<pair<int,int>>> adj(n);
     // add edges: u, v, weight
     adj[0].push_back({1, 2});
