@@ -45,3 +45,65 @@ int bfsGrid(vector<vector<int>> &grid, pair<int,int> start) {
     }
     return steps;
 }
+
+
+/*
+Option1: Structure
+struct State {
+    int x, y, mask;
+};
+
+queue<State> q;
+q.push({x, y, z});
+
+State cur = q.front();
+q.pop();
+
+int x = cur.x;
+int y = cur.y;
+int mask = cur.mask;
+
+option2: 
+// BFS queue: tuple (x, y, collectedKeysMask)
+queue<tuple<int,int,int>> q;
+
+q.emplace(x, y, z);
+
+auto [x, y, mask] = q.front();
+q.pop();
+
+option3: Array
+queue<array<int, 3>> q;
+
+q.push({startX, startY, 0});
+
+auto state = q.front();
+q.pop();
+
+int x = state[0];
+int y = state[1];
+int mask = state[2];
+
+Option4: three separate queues
+queue<int> qx, qy, qmask;
+
+qx.push(startX);
+qy.push(startY);
+qmask.push(0);
+
+int x = qx.front(); qx.pop();
+int y = qy.front(); qy.pop();
+int mask = qmask.front(); qmask.pop();
+
+Option5:  use vector<int> instead of tuple
+queue<vector<int>> q;  // each element: {x, y, mask}
+q.push({startX, startY, 0});
+
+auto state = q.front(); 
+q.pop();
+
+int x = state[0];
+int y = state[1];
+int mask = state[2];
+
+*/

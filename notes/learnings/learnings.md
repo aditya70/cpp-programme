@@ -270,3 +270,13 @@ q.emplace(x, y);          // ✅ Works - forwards to pair constructor
 q.emplace({x, y});        // ✅ Also works, but defeats the purpose
 
 ```
+
+```
+int dir[4][2]={{-1,0},{0,-1},{0,1},{1,0}}; // 4 neighbours of cell
+
+for(auto& d:dir){
+    int nx=x+d[0];
+    int ny=y+d[1];
+}
+
+```
