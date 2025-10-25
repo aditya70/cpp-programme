@@ -97,6 +97,20 @@ struct TrieNode {
 
 ```
 
+```
+class WordFilter {
+    struct TrieNode {
+        TrieNode* children[27]; // 26 letters + '#'
+        int weight;
+        TrieNode() : weight(-1) {
+            fill(begin(children), end(children), nullptr);
+        }
+    };
+
+    TrieNode* root;
+
+```
+
 #### split string by space
 ```
 string sentence;
@@ -222,3 +236,37 @@ for(int i=31;i>=0;i--){
 }
 
 1 << i = 1 * 2^i // multiplication
+
+
+```
+vector<vector<string>>& result
+vector<string>& path
+vector<string> onePath(path.rbegin(), path.rend());
+result.push_back(onePath); // right
+result.push_back(path.begin(),path.end()); // wrong
+vector<string>& wordList
+unordered_set<string> wordSet(wordList.begin(),wordList.end()); // vector to set
+unordered_set<string> visitedThisLevel;
+for (auto &w : visitedThisLevel) {
+    wordSet.erase(w);
+}
+```
+
+queue<pair<int,int>> q;
+
+// push: constructs pair first, then copies/moves it
+q.push({x, y});           // Creates temporary pair, then pushes
+q.push(make_pair(x, y));  // Explicit pair creation
+
+// emplace: constructs pair directly in-place
+q.emplace(x, y);          // Constructs pair directly in queue (no temp)
+
+// push needs a complete object or braces
+q.push({x, y});           // ✅ Works
+q.push(x, y);             // ❌ Error! Needs a pair
+
+// emplace takes constructor arguments directly
+q.emplace(x, y);          // ✅ Works - forwards to pair constructor
+q.emplace({x, y});        // ✅ Also works, but defeats the purpose
+
+```
