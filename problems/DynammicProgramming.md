@@ -81,5 +81,7 @@ These require **bitmasking**, **optimization**, or **multi-step reasoning**.
 | **Bitmask DP**            | Traveling Salesman, Keys Problems | State = subset of elements.         |
 
 ---
+- 309: state machine dynamic programming problem. This one is key for understanding DP on states / transitions, often used in stock trading problems and general “finite-state” dynamic systems.
+
 
 

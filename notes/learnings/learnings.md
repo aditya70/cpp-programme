@@ -280,3 +280,30 @@ for(auto& d:dir){
 }
 
 ```
+string &s;
+int zeros = count(s.begin(), s.end(), '0');
+int ones = s.size() - zeros;
+```
+
+```
+This is the top-down recursive equivalent of 2D knapsack.
+Each dimension (m, n) represents a capacity (resource).
+idx adds a third dimension → which items we can still consider.
+Classic pattern: “include/exclude + memoization”.
+
+1 <= strs.length <= 600
+1 <= strs[i].length <= 100
+
+// dp[idx][m][n] = the maximum number of strings we can form
+starting from index idx (the current string),
+when we still have m zeros and n ones available.
+
+int dp[601][101][101];
+memset(dp,-1,sizeof(dp));
+
+```
+
+```
+vector<int>& nums 
+int total = accumulate(nums.begin(), nums.end(), 0); // total sum
+```
