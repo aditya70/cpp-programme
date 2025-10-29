@@ -357,3 +357,8 @@ vector<pair<int,int>> intervals;
 intervals.emplace_back(startTime, endTime); // int startTime, endTime
 
 ```
+
+ch= 'a'
+string str=string(ch, 5); // aaaaa
+
+```
