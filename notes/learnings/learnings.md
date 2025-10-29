@@ -307,3 +307,41 @@ memset(dp,-1,sizeof(dp));
 vector<int>& nums 
 int total = accumulate(nums.begin(), nums.end(), 0); // total sum
 ```
+
+```
+unordered_map<int, int> memo;
+
+// As you insert elements:
+memo[1] = 10;  // Capacity too small, rehash!
+memo[2] = 20;  // Capacity too small, rehash!
+memo[3] = 30;  // Capacity too small, rehash!
+// ... multiple expensive rehashing operations
+
+unordered_map<int, int> memo;
+memo.reserve(1000);  // Pre-allocate for 1000 elements
+
+memo[1] = 10;  // ✅ No rehash
+memo[2] = 20;  // ✅ No rehash
+memo[3] = 30;  // ✅ No rehash
+// ... all insertions are faster
+
+// Similar concept for vector
+vector<int> v;
+v.reserve(1000);  // Pre-allocate space for 1000 elements
+
+// vs unordered_map
+unordered_map<int, int> m;
+m.reserve(1000);  // Pre-allocate buckets for ~1000 elements
+
+// Dynamic programming with known state space
+int n = 20;
+unordered_map<int, int> dp;
+dp.reserve(1 << n);  // Will have at most 2^20 states
+
+// Processing large input
+vector<int> nums(100000);
+unordered_map<int, int> freq;
+freq.reserve(nums.size());
+for (int x : nums) freq[x]++;
+
+```
