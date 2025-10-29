@@ -345,3 +345,15 @@ freq.reserve(nums.size());
 for (int x : nums) freq[x]++;
 
 ```
+
+map<int,int> mp; // start → end
+
+auto it = mp.lower_bound(start);
+auto prev = std::prev(it);
+
+```
+
+vector<pair<int,int>> intervals;
+intervals.emplace_back(startTime, endTime); // int startTime, endTime
+
+```
