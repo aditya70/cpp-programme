@@ -362,3 +362,42 @@ ch= 'a'
 string str=string(ch, 5); // aaaaa
 
 ```
+
+```
+vector<vector<int>>& intervals;
+
+// ascendign sorting
+sort(intervals.begin(), intervals.end(),
+    [](const vector<int>& a, const vector<int>& b){
+        return a[0] < b[0];
+    });
+
+// ascending sorting
+sort(intervals.begin(), intervals.end(), [](auto& a, auto& b){
+    if (a[0] == b[0]) return a[1] < b[1];
+    return a[0] < b[0];
+});
+
+
+struct Interval {
+    int start, end;
+};
+
+// sort by end time ascending
+bool cmp(Interval a, Interval b) {
+    if(a.start==b.start){
+        return a.end<b.end;
+    }
+    return a.start<b.start;
+}
+vector<Interval> v;
+sort(v.begin(),v.end(),cmp); // ascending sorting
+
+```
+srand(time(0));       // Seed once
+int x = rand();       // Returns random int (0 to RAND_MAX)
+int x = rand() % 100; // 0 to 99 (but biased!)
+int random=rand() // random numbers
+int idx = rand()%10 // 0 to 9 index
+
+```

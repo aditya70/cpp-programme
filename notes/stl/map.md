@@ -150,3 +150,14 @@ ump[2] = "Two";
 2. Use **structured bindings** to simplify loops.
 3. `map` keys are always sorted → use `lower_bound`/`upper_bound`.
 4. For **counting frequency** → `freq[x]++` is super concise.
+
+```
+The count() function for unordered_map returns 0 or 1.
+unordered_map<int, int> map;
+map[5] = 100;
+map[10] = 200;
+
+int result1 = map.count(5);   // Returns 1 (key exists)
+int result2 = map.count(10);  // Returns 1 (key exists)
+int result3 = map.count(99);  // Returns 0 (key doesn't exist)
+```
