@@ -161,3 +161,54 @@ int result1 = map.count(5);   // Returns 1 (key exists)
 int result2 = map.count(10);  // Returns 1 (key exists)
 int result3 = map.count(99);  // Returns 0 (key doesn't exist)
 ```
+
+#### important
+
+
+| Operation       | Meaning                  | Inserts if Key Missing?  |
+| --------------- | ------------------------ | ------------------------ |
+| `mp.count(key)` | Check existence (0 or 1) | ❌ No                     |
+| `mp[key]`       | Access / modify value    | ✅ Yes (default‐insert)   |
+| `mp.at(key)`    | Access only if exists    | ❌ No (throws if missing) |
+| `mp.find(key)`  | Get iterator to key      | ❌ No                     |
+| `mp[key]++`     | Increment frequency      | ✅ Yes                    |
+
+---
+
+### ✅ Best usage patterns:
+
+Check existence:
+
+```cpp
+if (mp.count(x)) { ... }
+```
+
+Increment frequency:
+
+```cpp
+mp[x]++;
+```
+
+Access safely:
+
+```cpp
+if (mp.count(x)) val = mp[x];
+```
+
+Avoid accidental insert:
+
+```cpp
+if (auto it = mp.find(x); it != mp.end()) {
+    val = it->second;
+}
+```
+
+---
+
+### ✅ Quick notes
+
+* `count()` is for **existence check**
+* `mp[key]` **creates** missing key with default value
+* For string/key lookup speed → `unordered_map` is **avg O(1)**
+
+```
