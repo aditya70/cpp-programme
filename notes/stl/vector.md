@@ -144,3 +144,24 @@ for(auto &row : mat) {
 * Preallocate with `reserve()` to avoid repeated reallocations
 
 
+#### Compare two vectors
+```
+vector<int> window(26,0), target(26,0);
+if(window==target) // comparison of two vectors 
+
+vector<int> v1 = {1, 2, 3};
+vector<int> v2 = {1, 2, 3};
+vector<int> v3 = {1, 2, 4};
+
+if (v1 == v2) {
+    cout << "v1 and v2 are equal";  // ✅ This prints
+}
+
+if (v1 == v3) {
+    cout << "v1 and v3 are equal";  // ❌ Doesn't print
+}
+
+Requirements for equality:
+- Same size
+- Same elements in same order
+```
