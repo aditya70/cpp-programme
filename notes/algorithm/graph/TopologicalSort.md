@@ -294,4 +294,7 @@ vector<int> topoSortDFS_CycleCheck(int n, vector<vector<int>>& adj) {
 
 ---
 
+Topological BFS	Ensures we process parent nodes before child nodes
+Using indegree	Controls processing order
 
+---
