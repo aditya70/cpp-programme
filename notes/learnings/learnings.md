@@ -401,3 +401,21 @@ int random=rand() // random numbers
 int idx = rand()%10 // 0 to 9 index
 
 ```
+
+double r = ((double) rand() / RAND_MAX) * total;
+
+rand() returns an integer from 0 to RAND_MAX
+
+To convert it into a real number from 0 to 1, we divide by RAND_MAX
+
+Then we scale it up by total
+
+This gives a value in: [0, total)
+
+```
+
+```
+unordered_map<int, int> indegree;
+unordered_map<int, unordered_set<int>> graph;
+
+```
