@@ -168,3 +168,83 @@ vector<int> topologicalSortDFS(int n, vector<vector<int>>& adj) {
 
 
 
+Great question — and noticing this difference means you really understand what’s going on 👌🔥
+
+Let’s break it down clearly:
+
+---
+
+# ✅ Why BFS Topological Sort does NOT need a stack
+
+### 📌 Key Insight
+
+Topological sort wants:
+
+> All prerequisites (incoming edges) must appear **before** a node in the order
+
+There are **2 valid ways** to ensure this:
+
+---
+
+## ✅ 1️⃣ DFS Version Logic
+
+(📌 Post-order)
+
+* Visit all neighbors first
+* Then push node into stack
+* Reverse the stack → gives correct order
+
+➡️ **Stack is required** because DFS finishes children before parent, but we must reverse that traversal.
+
+---
+
+## ✅ 2️⃣ BFS Version Logic — Kahn’s Algorithm
+
+(📌 In-degree ordering)
+
+Here is the key:
+
+👉 We only push nodes with **in-degree = 0**
+= nodes that have **no prerequisites left**
+➡️ They are safe to place next in the result **without reversal**
+
+So:
+
+* Queue is already in valid topological order
+* Each pop from queue = append to result directly
+  ➡️ **No stack needed**
+
+---
+
+# ✅ Simple Comparison Table
+
+| Feature                    | BFS Topo Sort (Kahn)    | DFS Topo Sort                     |
+| -------------------------- | ----------------------- | --------------------------------- |
+| Storage Method             | Queue                   | Stack                             |
+| When node added to result? | Immediately upon pop    | After processing neighbors        |
+| Cycle detection            | Easy (count < n)        | Requires recursion state tracking |
+| Unique ordering check      | Easy (queue.size() > 1) | Hard                              |
+| Order variability          | May vary                | May vary                          |
+
+---
+
+# ✅ One-Line Summary
+
+> DFS builds the order backwards → needs a stack
+> BFS builds the order forwards → result is correct immediately → no stack
+
+---
+
+## ✅ When to use which?
+
+| Use Case                     | Best Method                     |
+| ---------------------------- | ------------------------------- |
+| Need uniqueness check        | ✅ BFS                           |
+| Need cycle detection only    | Both                            |
+| Just need one valid order    | Either                          |
+| You want longest path in DAG | ✅ DFS (easier to add DP)        |
+| Alien Dictionary             | BFS usually easier              |
+| Sequence Reconstruction      | BFS required (uniqueness check) |
+
+
+
