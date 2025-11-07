@@ -419,3 +419,62 @@ unordered_map<int, int> indegree;
 unordered_map<int, unordered_set<int>> graph;
 
 ```
+
+```
+struct State {
+    string board;
+    unordered_map<char,int> hand;
+    int moves;
+
+    State(string b, unordered_map<char,int> h, int m)
+        : board(b), hand(h), moves(m) {}
+};
+
+
+State init(board, handCount, 0);
+
+
+// This is called aggregate initialization (also known as brace initialization or uniform initialization in C++11+).
+struct State {
+    string board;
+    unordered_map<char,int> hand;
+    int moves;
+};
+
+
+State init { "RRBBY", {{'R',1},{'B',1}}, 0 };
+
+
+```
+
+```
+string st;
+st.append(to_string(c)); // c int
+st.push_back(to_string(c)) // push_back() only accepts a single char // wrong
+```
+
+```
+Option 1: define a custom hash struct
+struct PairHash {
+    size_t operator()(const pair<int,int>& p) const noexcept {
+        return hash<long long>()(((long long)p.first << 32) ^ p.second);
+    }
+};
+
+
+unordered_set<pair<int,int>, PairHash> vis;
+
+vis.insert({x, y});
+if (vis.count({nx, ny})) ...
+
+Option 2: use a flattened integer key
+
+unordered_set<int> vis;
+int key = x * n + y;  // n = number of columns
+vis.insert(key);
+if (vis.count(nx * n + ny)) ...
+
+Option 3: use vector<vector<bool>> (simplest in grids)
+vector<vector<bool>> vis(m, vector<bool>(n, false));
+if (!vis[x][y]) { vis[x][y] = true; }
+```
