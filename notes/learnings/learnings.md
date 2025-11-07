@@ -461,6 +461,13 @@ struct PairHash {
     }
 };
 
+// OR
+struct PairHash {
+    size_t operator()(const pair<int,int>& p) const noexcept {
+        return hash<int>()(p.first) ^ (hash<int>()(p.second) << 1);
+    }
+};
+
 
 unordered_set<pair<int,int>, PairHash> vis;
 
