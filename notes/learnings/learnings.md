@@ -206,7 +206,7 @@ string s = "Hello Beautiful World";
 
 // Find and erase "Beautiful "
 size_t pos = s.find("Beautiful");
-if (pos != string::npos) {
+if (pos != string::npos) { 
     s.erase(pos, 10);  // "Beautiful " is 10 chars
 }
 
@@ -484,4 +484,91 @@ if (vis.count(nx * n + ny)) ...
 Option 3: use vector<vector<bool>> (simplest in grids)
 vector<vector<bool>> vis(m, vector<bool>(n, false));
 if (!vis[x][y]) { vis[x][y] = true; }
+```
+
+```
+// C++ cannot deduce the type of a recursive lambda declared with auto,
+// because the compiler doesn’t know what dfs refers to while it’s still being defined.
+
+auto dfs = [&](int x, int y) {
+    ...
+    dfs(dx, dy); // recursive call
+    ...
+};
+
+Option 1 (Best): use std::function)
+Explicitly declare the function type before defining the lambda.
+function<void(int,int)> dfs = [&](int x, int y) {
+}
+
+Option 2: define a helper function
+
+```
+
+```
+string val = "AB%C%AXC";
+// string::npos=-1
+// ✅ Correct way:
+if (val.find('%') != string::npos) { // string::npos = -1 // if (val.find('%') != -1) {
+    cout << "Found '%'";
+}
+
+// ❌ Your way doesn't work:
+// val.find('%') == val.end()  // ERROR: find() returns size_t, not iterator
+
+size_t pos = str.find(char);
+size_t pos = str.find(substring);
+
+Return Value:
+Returns index (position) where character/substring is found
+Returns string::npos if not found (npos = -1 or max size_t value)
+
+string val = "AB%C%AXC";
+
+size_t first = val.find('%');           // 2 (first %)
+size_t second = val.find('%', first+1); // 4 (second %)
+
+cout << first << " " << second;  // 2 4
+
+```
+
+#### Convert the char to string:
+string text="abcd";
+Option 1: Using string constructor
+res += subs[string(1, text[i+1])];
+
+// Option 2: Using string literal (if single char)
+res += subs[string() + text[i+1]];
+
+// Option 3: Using substr
+res += subs[text.substr(i+1, 1)];
+
+```
+for (size_t i = 0; i < text.size();) {
+    i++;
+}
+```
+
+```
+vector<int> v = {1, 2, 3};
+
+// ❌ Warning: comparing signed and unsigned
+for (int i = 0; i < v.size(); i++) {  // v.size() returns size_t
+    // ...
+}
+
+// ✅ Fix 1: Use size_t
+for (size_t i = 0; i < v.size(); i++) {
+    // ...
+}
+
+// ✅ Fix 2: Cast to int
+for (int i = 0; i < (int)v.size(); i++) {
+    // ...
+}
+
+// ✅ Fix 3: Use auto
+for (auto i = 0; i < v.size(); i++) {  // auto deduces to int
+    // ...
+}
 ```
