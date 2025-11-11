@@ -64,6 +64,9 @@ struct Node {
     }
 };
 
+TL;DR:
+Always define operator> (or <) when using a custom struct inside priority_queue with greater<> or less<>.
+
 priority_queue<Node> pq;
 pq.push({10,3});
 pq.push({20,1});

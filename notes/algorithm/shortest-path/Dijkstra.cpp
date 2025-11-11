@@ -2,7 +2,9 @@
 using namespace std;
 
 **Dijkstra’s Algorithm implementation in C++** using a priority queue (min-heap) for shortest path in a weighted graph (non-negative weights):
-// Use case: Single-source shortest path in a weighted graph (no negative edges).
+// Use case: Single-source shortest path in a weighted graph (no negative edges). 
+// directed/undirected graph
+// remove self loop and parallel edges
 // Time: O(E log V) with priority queue.
 vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
     // Distance vector initialized to infinity
@@ -14,7 +16,8 @@ vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
     pq.push({0, src});
 
     while (!pq.empty()) {
-       //  auto& [d, u] = pq.top(); pq.pop(); // wrong // reference to top element and then pop destroys that element. // the reference d and u are dangling references — undefined behavior.
+       //  auto& [d, u] = pq.top(); pq.pop(); // wrong // reference to top element and then pop destroys that element. 
+       // the reference d and u are dangling references — undefined behavior.
         auto [d, u] = pq.top(); pq.pop();
 
         // If we already found a better path
@@ -65,7 +68,8 @@ int main() {
 
 ## 🧭 **🔹 DIJKSTRA’S ALGORITHM — OVERVIEW**
 
-Dijkstra’s algorithm finds the **shortest path from a source node to all other nodes** in a weighted graph — provided **all edge weights are non-negative**.
+Dijkstra’s algorithm finds the **shortest path from a source node to all other nodes** in a weighted graph 
+— provided **all edge weights are non-negative**.
 
 ---
 
