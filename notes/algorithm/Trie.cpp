@@ -189,3 +189,51 @@ private:
         return false;
     }
 };
+
+
+// Memory Optmized Implementation of Trie using Array and without heap memory allocation
+
+struct TrieNode {
+    int count;
+    int child[26];
+    TrieNode() {
+        count = 0;
+        memset(child, -1, sizeof(child));
+    }
+};
+
+class Solution {
+public:
+    vector<int> sumPrefixScores(vector<string>& words) {
+        const int MAX_NODES = 1e6 + 10;  
+        vector<TrieNode> trie(MAX_NODES);
+        int nodeCount = 1; // root = 0
+
+        // Insert words
+        for (auto &word : words) {
+            int node = 0;
+            for (char ch : word) {
+                int idx = ch - 'a';
+                if (trie[node].child[idx] == -1)
+                    trie[node].child[idx] = nodeCount++;
+                node = trie[node].child[idx];
+                trie[node].count++;
+            }
+        }
+
+        // Compute prefix scores
+        vector<int> ans;
+        ans.reserve(words.size());
+        for (auto &word : words) {
+            int node = 0;
+            int score = 0;
+            for (char ch : word) {
+                int idx = ch - 'a';
+                node = trie[node].child[idx];
+                score += trie[node].count;
+            }
+            ans.push_back(score);
+        }
+        return ans;
+    }
+};
