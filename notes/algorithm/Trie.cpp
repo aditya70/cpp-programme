@@ -237,3 +237,31 @@ public:
         return ans;
     }
 };
+
+// Trie with more character i.e. more than 26 characters
+struct Trie {
+    Trie* child[128]; // 128 characters
+    bool end;
+    Trie() {
+        end=false;
+        for(int i=0;i<128;i++){
+            child[i]=nullptr;
+        }
+    }
+};
+
+struct Trie {
+    Trie* child[128];
+    bool end;
+    Trie() : end(false) {
+        fill(begin(child), end(child), nullptr);
+    }
+};
+
+// Instead of size 26, allocate all 128 ASCII chars (or even unordered_map<char,Trie*>)
+// Trie more general (if inputs may include any ASCII)
+struct Trie {
+    unordered_map<char, Trie*> child;
+    bool end;
+    Trie() : end(false) {}
+};
