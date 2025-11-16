@@ -214,3 +214,10 @@ So, total time =
 O(V log V) + O(E log V)
 ≈ O((V + E) log V)
 ≈ O(E log V)   (since E ≥ V in most connected graphs)
+
+
+```
+LLONG_MAX = 9223372036854775807
+But vector<int> dist stores only 32-bit signed int (~2e9)
+So LLONG_MAX gets truncated → becomes a NEGATIVE number!
+```

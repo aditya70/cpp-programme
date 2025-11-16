@@ -23,6 +23,11 @@ A cycle exists if we encounter a node in state 1 (back edge)
 
 Time Complexity: O(V + E) where V is vertices and E is edges
 Space Complexity: O(V) for recursion stack and visited/state arrays
+
+* We cannot use the undirected approach for directed graphs.
+
+Undirected: Uses parent check (assumes bidirectional edges)
+Directed: Uses state tracking (detects back edges in recursion stack)
 */
 
 // For undirected graph
